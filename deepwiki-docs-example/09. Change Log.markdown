@@ -1,0 +1,25 @@
+
+### 1.1.1 (beta2) 2014-12-08
+
+- **NEW**: Supported to generate content outline index
+- **NEW**: Automatically add anchor to content headings
+
+### 1.1.1 (beta1) 2014-12-07
+
+- **NEW**: Supported Responsive CSS
+
+### 1.1.0 (beta2) 2014-12-06
+
+- **FIXED**: Redirection bug for root visits
+
+### 1.1.0 (beta1) 2014-12-06
+
+- **NEW**: Allowed to define all document titles, filenames and slug names in configuration instead of using file naming
+- **NEW**: Supported inner page linking and asset files linking in document content
+- **NEW**: Implemented Prism to highlight code blocks in DeepWiki Default Theme
+- **NEW**: Minified all assets files in DeepWiki Default Theme
+- **NEW**: Included necessary components in DeepWiki Git repository for easier installation
+
+### 1.0.0 (beta1) 2014-11-14
+
+- **NEW**: Born

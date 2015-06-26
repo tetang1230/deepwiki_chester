@@ -1,0 +1,41 @@
+server {
+
+    # bind to http://example.com on port 80
+    listen 80;
+    server_name chesterwiki.com;
+
+    # change this to your DeepWiki root path
+    root /Users/mls/higowiki;
+    index index.html index.htm index.php;
+
+    # prevent illegal request
+    location ~ /(deepwiki-config|deepwiki-docs) {
+        deny all;
+    }
+
+    # rewrite non-exist path to index.php, or return HTTP 404 Not Found
+    location / {
+        try_files $uri $uri/ /index.php?p=$uri&$args;
+
+        # custom error documents
+        error_page 404 = /index.php\?p=_404;
+        error_page 403 = /index.php\?p=_403;
+    }
+
+    # example of passing request to FastCGI
+    fastcgi_param PHP_VALUE "open_basedir=$document_root:/tmp/";
+    location ~ \.php$ {
+        #fastcgi_pass unix:/tmp/fastcgi-php.socket;
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    # prevent from requesting Apache HTTP Server configuration files
+    location ~ /\.ht {
+        deny all;
+    }
+
+}
+

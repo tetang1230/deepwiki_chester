@@ -1,0 +1,75 @@
+
+### For Apache HTTP Server
+
+Place the code in the `/.htaccess` file.
+
+```
+# prevent directory listing
+Options -Indexes
+
+# custom error documents
+ErrorDocument 404 index.php\?p=_404
+ErrorDocument 403 index.php\?p=_403
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+# change / to your DeepWiki relative directory path, eg. /path/to/wiki/
+RewriteBase /
+
+# prevent illegal request
+RewriteRule ^deepwiki-config/(.*)$ index.php\?p=_403 [L]
+RewriteRule ^deepwiki-docs/(.*)$ index.php\?p=_403 [L]
+
+# rewrite non-exist path to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php\?p=$1 [QSA,L]
+
+</IfModule>
+```
+
+### For Nginx
+
+Place the code inside the `http { ... }` node in Nginx configuration file.
+
+```
+server {
+
+	# bind to http://example.com on port 80
+	listen 80;
+	server_name example.com;
+
+	# change this to your DeepWiki root path
+	root /var/www/deepwiki;
+
+	# prevent illegal request
+	location ~ /(deepwiki-config|deepwiki-docs) {
+		deny all;
+	}
+
+	# rewrite non-exist path to index.php, or return HTTP 404 Not Found
+	location / {
+		try_files $uri $uri/ /index.php?p=$uri&$args;
+
+		# custom error documents
+		error_page 404 = /index.php\?p=_404;
+		error_page 403 = /index.php\?p=_403;
+	}
+
+	# example of passing request to FastCGI
+	fastcgi_param PHP_VALUE "open_basedir=$document_root:/tmp/";
+	location ~ \.php$ {
+		fastcgi_pass unix:/tmp/fastcgi-php.socket;
+		fastcgi_index index.php;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+		include fastcgi_params;
+	}
+
+	# prevent from requesting Apache HTTP Server configuration files
+	location ~ /\.ht {
+		deny all;
+	}
+
+}
+```

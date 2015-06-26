@@ -1,0 +1,8 @@
+
+### Thanks to
+
+- [Parsedown](http://parsedown.org/) (implemented to DeepWiki)
+- [Bootstrap](http://getbootstrap.com/) (implemented to DeepWiki Default Theme)
+- [jQuery](http://jquery.com/) (implemented to DeepWiki Default Theme)
+- [Prism](http://prismjs.com/) (implemented to DeepWiki Default Theme)
+- [GitHub Markdown CSS](https://github.com/revolunet/sublimetext-markdown-preview) (implemented to DeepWiki Default Theme)

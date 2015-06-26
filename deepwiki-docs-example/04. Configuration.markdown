@@ -1,0 +1,55 @@
+
+Main configuration is placed in `deepwiki-config/config.json`, can be made from the sample file `deepwiki-config/config-sample.json`:
+
+```php
+class test{
+    public static function test(){
+    }
+}
+```
+
+```json
+{
+	"site_name": "DeepWiki",
+	"site_description": "Markdown Documents Showcase",
+	"copyright": "Powered by <a href=\"https://github.com/ychongsaytc/deepwiki\" target=\"_blank\">DeepWiki</a>.",
+	"theme": "default",
+	"docs_path": "deepwiki-docs-example",
+	"home_route": "quick-start",
+	"display_chapter": false,
+	"display_index": false,
+	"rewrite": false,
+	"footer_code": "",
+	"password": "",
+	"cookie_salt": "REPLACE_THIS_WITH_A_RANDOM_STRING",
+	"docs": {}
+}
+```
+
+Property | Description
+--- | ---
+`site_name` | Title of the website. Defaults to `'DeepWiki'`.
+`site_description` | Short description of the website Defaults to `'Markdown Documents Showcase'`.
+`copyright` | Copyright text in footer HTML format. Defaults to `'Powered by <a href="https://github.com/ychongsaytc/deepwiki" target="_blank">DeepWiki</a>.'`.
+`theme` | Slug name of current theme, must be matched a directory name in `deepwiki-themes/` (see [Theme Development](#/theme-development)). Defaults to `'default'`.
+`docs_path` | Directory to find document files. Defaults to `'deepwiki-docs-example'`.
+`home_route` | The default route (a path to the landing document) for root page visits. Defaults to `'quick-start'`.
+`display_chapter` | Display chapter number (like `1.1.a.`) before document title. Defaults to `false`.
+`display_index` | Display contents index navigation (based on content outline). Defaults to `false`.
+`rewrite` | Enable global URL Rewrite (see [URL Rewrite](#/url-rewrite) to enable rewrite feature for your server). Defaults to `false`.
+`footer_code` | HTML code at the end of `<body>`, can be placed your Google Analytics code, ["Fork me on GitHub"](https://github.com/blog/273-github-ribbons) badge, and anything you want. Defaults to empty.
+`password` | Main password to view the website, fill in this to enable site authentication. Defaults to empty.
+`cookie_salt` | A random string for encrypt cookies data, important. Defaults to empty.
+`docs` | Specify all document titles, filenames and slug names in an array. See [Define all documents in configuration](#/writing-documents). Defaults to empty.
+
+### Directory Structure
+
+```
+deepwiki-docs/                   Document files in Markdown, plain text, HTML
+deepwiki-assets/                 Asset files (e.g. images)
+deepwiki-config/config.json      Main configuration file in JSON
+deepwiki-themes/                 DeepWiki themes
+               /default/         The default theme of DeepWiki
+               /xxx/             A theme named xxx
+deepwiki-vendor/                 The necessary components
+```

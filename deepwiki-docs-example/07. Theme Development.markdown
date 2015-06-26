@@ -1,0 +1,44 @@
+
+DeepWiki allow you to custom your own template. The files structure is:
+
+```
+deepwiki-themes/xxx/             A theme named xxx
+               /xxx/theme.json   Theme configuration in JSON
+               /xxx/index.html   Document page template
+               /xxx/404.html     Not Found (404 HTTP status) page template
+               /xxx/login.html   User Login page template
+```
+
+Sample theme configuration:
+
+```json
+{
+	"name": "A DeepWiki Theme",
+	"assets": {
+		"css": [
+			"css/web.css"
+		],
+		"js": [
+			"js/web.js"
+		]
+	}
+}
+```
+
+Functional elements in template files:
+
+Identifier | Description
+--- | ---
+`{{site_name}}` | The website name, defined in [DeepWiki configuration](#/configuration).
+`{{site_description}}` | The description of website, defined in [DeepWiki configuration](#/configuration).
+`{{site_uri}}` | Current website root relative url, with a slash ending.
+`{{html_head}}` | Necessary general HTML tags in `<head>`.
+`{{nav}}` | The navigation menu HTML, formatted in Bootstrap style.
+`{{doc_title}}` | Current document title.
+`{{doc_heading}}` | Current document title maybe with the chapter (defined in [DeepWiki configuration](#/configuration)).
+`{{doc_content}}` | Current document content in HTML.
+`{{copyright}}` | The copyright text, defined in [DeepWiki configuration](#/configuration). Must be escaped manually.
+`{{body_footer}}` | The page footer HTML code, defined in [DeepWiki configuration](#/configuration).
+`{{logout_link}}` | Output a logout link when needed and Logging feature is enabled.
+`{{login_form}}` | The login form HTML code, formatted in Bootstrap style.
+

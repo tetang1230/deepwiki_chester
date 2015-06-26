@@ -1,0 +1,4 @@
+
+1. [Download the latest release of DeepWiki](https://github.com/ychongsaytc/deepwiki/releases).
+2. Unarchive package.
+3. Done.

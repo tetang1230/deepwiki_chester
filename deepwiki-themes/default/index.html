@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<title>{{doc_title}} &raquo; {{site_name}}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{{html_head}}
+
+</head>
+<body>
+
+	<header class="navbar navbar-static-top navbar-default" role="banner">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="{{site_uri}}" title="{{site_description}}">{{site_name}}</a>
+				<button id="wiki-nav-toggle" data-target="#wiki-nav" data-toggle="collapse" type="button" class="navbar-toggle collapsed">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<p class="navbar-text hidden-xs">{{site_description}}</p>
+		</div>
+	</header>
+
+	<div class="container-fluid">
+
+		<div class="row">
+
+			<nav id="wiki-nav" class="col-sm-4 col-md-3 collapse in" role="navigation">
+				{{nav}}
+			</nav>
+
+			<section id="wiki-content" class="col-sm-8 col-md-9" role="main">
+				<div class="markdown-body">
+					<h1>{{doc_heading}}</h1>
+					<div id="wiki-content-index" class="hidden-xs">{{doc_index}}</div>
+					{{doc_content}}
+				</div>
+			</section>
+
+		</div>
+
+	</div>
+
+	<footer id="wiki-footer" role="contentinfo">
+		<div class="container-fluid">
+			<p class="text-muted">{{copyright}} {{logout_link}}</p>
+		</div>
+	</footer>
+
+{{body_footer}}
+
+</body>
+</html>

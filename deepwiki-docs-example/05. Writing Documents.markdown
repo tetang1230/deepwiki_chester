@@ -1,0 +1,115 @@
+
+All documents must be placed in DeepWiki documents directory (defaults to `deepwiki-docs/`, can be changed in [DeepWiki configuration](#/configuration)).
+
+### Arrange your documents through file naming
+
+Basic way to arrange your documents, will be overwrite by the definition in DeepWiki configuration (see *Define all documents in configuration* below).
+
+#### Full functional naming example
+
+```
+1. Parent Page One [parent-1].markdown
+1.1. Child Page One [child-1].markdown
+1.2. Child Page Two [child-2].markdown
+1.2.1. Grandchild Page One [grandchild-1].markdown
+1.2.2. Grandchild Page Two [grandchild-2].markdown
+1.2.3. Grandchild Page Three [grandchild-3].markdown
+1.3. Child Page Two [child-3].markdown
+2. Parent Page Two [parent-2].markdown
+3. Parent Page Three [parent-3].markdown
+```
+
+1. **Chapter Number**: (optional) Using digits or letters ended with a point (`.`). If not set, the document will act in flat hierarchy.
+2. **Document Title**: (mandatory) The title of document.
+3. **Document Slug Name**: (optional) A string to be the identifier (or short name) of the document, enclosed by a pair of square brackets (`[` and `]`). Leave this blank to use sanitized document title as slug name.
+4. **Document File Extension Name**: (mandatory) Possible values are: `.markdonw`, `.md`, `.mdown`, `.txt`, `.html`, etc.
+
+#### More examples
+
+Pure titles, without hierarchy
+
+```
+Umentia.md
+Ventis.md
+Boreas.md
+Bracchia.md
+Congestaque.md
+```
+
+Using letters as chapter, with hierarchy
+
+```
+A. Crescendo.md
+B. Mundum.md
+C. Fulgura.md
+D. Habendum.md
+D.1. Discordia.md
+D.2. Instabilis.md
+D.3. Erectos.md
+D.3.a. Utramque.md
+D.3.b. Flamma.md
+E. Scythiam.md
+```
+
+### Define all documents in configuration
+
+Sample configuration (`docs` node in [DeepWiki configuration](#/configuration)):
+
+```json
+{
+	"docs": {
+		"home": {
+			"title": "Home",
+			"file": "home.md"
+		},
+		"products": {
+			"title": "Products",
+			"file": "",
+			"children": {
+				"category-a": {
+					"title": "Category A",
+					"file": "product-category-a.md"
+				},
+				"category-b": {
+					"title": "Category B",
+					"file": "product-category-b.md"
+				}
+			}
+		},
+		"global-site": {
+			"title": "Global Site",
+			"file": "http://example.com/"
+		}
+	}
+}
+```
+
+### Inner page linking and asset files linking
+
+DeepWiki will perform transforms after document content is parsed. There are two transformers:
+
+Type | Description
+--- | ---
+Inner Link | Parse the URL into a website URI.
+Assets | Parse the URL into an assets path based URI.
+
+#### Examples
+
+Think about the website root URL is `http://example.com/path/to/wiki/`:
+
+- `[Contact Us](#/about/contact-us)` will be parsed into:
+
+	```html
+	<a href="/path/to/wiki/about/contact-us">Contact Us</a>
+	```
+- `[Click to view full size](!/full-size-image.jpg)` will be parsed into:
+
+	```html
+	<a href="/path/to/wiki/deepwiki-assets/full-size-image.jpg">Click to view full size</a>
+	```
+- `![Website Logo](!/logo.png)` will be parsed into:
+
+	```html
+	<img src="/path/to/wiki/deepwiki-assets/logo.png" alt="Website Logo" />
+	```
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<title>Nothing Found &raquo; {{site_name}}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{{html_head}}
+
+</head>
+<body>
+
+	<header class="navbar navbar-static-top navbar-default" role="banner">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="{{site_uri}}" title="{{site_description}}">{{site_name}}</a>
+			</div>
+			<p class="navbar-text hidden-xs">{{site_description}}</p>
+		</div>
+	</header>
+
+	<div class="container-fluid">
+
+		<div class="row">
+
+			<section id="wiki-404" class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" role="main">
+				<div class="alert alert-info" role="alert">Sorry, but you are looking for something that isn't here.</div>
+			</section>
+
+		</div>
+
+	</div>
+
+	<footer id="wiki-footer" role="contentinfo">
+		<div class="container-fluid">
+			<p class="text-muted">{{copyright}} {{logout_link}}</p>
+		</div>
+	</footer>
+
+{{body_footer}}
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+
+1. [Make a configuration file from the sample](#/configuration).
+2. [Write down some Markdown files](#/documents-structure) into `deepwiki-docs/`.
+3. Run it in PHP. 
