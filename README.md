@@ -1,7 +1,9 @@
 
 # 基于deepwiki
 - deepwiki.nginx.vhost 是基于nginx的一个vhost的example,里面只要更改写wiki的目录,在nginx和php的环境中就可跑通
-- 配置文件在deepwiki-config/sam:
+- 配置文件在./deepwiki-config/config.json中
+- 文件的层级格式在./deepwiki-docs中
+- 更详细的内容在下面
 
 # DeepWiki
 
