@@ -1,0 +1,15 @@
+{
+	"site_name": "Chester",
+	"site_description": "Chester Documents",
+	"copyright": "Powered by ChesterWiki.",
+	"theme": "default",
+    "docs_path": "deepwiki-docs",
+	"home_route": "higo-project/1-1-phpguifan",
+	"display_chapter": false,
+	"display_index": false,
+	"rewrite": false,
+    "footer_code": "",
+	"password": "",
+	"cookie_salt": "REPLACE_THIS_WITH_A_RANDOM_STRING",
+	"docs": {}
+}
